@@ -37,8 +37,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   List<ListItem> _userItems = [
-    ListItem(id: "T1", naslov: "Algoritmi i podatocni strukturi"),
-    ListItem(id: "T2", naslov: "Verojatnost i statistika"),
+    ListItem(id: "T1", naslov: "Algoritmi i podatocni strukturi", datum: "25.10.2022", vreme: "14:15"),
+    ListItem(id: "T2", naslov: "Verojatnost i statistika", datum: "26.10.2022", vreme: "14:15"),
   ];
 
   void _addItemFunction(BuildContext ct) {
@@ -72,12 +72,12 @@ class _MyHomePageState extends State<MyHomePage> {
           return Card(
             elevation: 3,
             margin: EdgeInsets.symmetric(
-              vertical: 8,
+              vertical: 10,
               horizontal: 10,
             ),
             child: ListTile(
-              title: Text(_userItems[index].naslov, style: TextStyle(fontWeight: FontWeight.bold),),
-              subtitle: Text(DateTime.now().toString().substring(0, 16), style: TextStyle(color: Colors.grey),),
+              title: Text(_userItems[index].naslov),
+              subtitle: Text(_userItems[index].datum + " " + _userItems[index].vreme),
               trailing: IconButton(
                 icon: Icon(Icons.delete),
                 onPressed: () => _deleteItem(_userItems[index].id),
@@ -94,8 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return AppBar(
       // The title text which will be shown on the action bar
 
-        title: Text("Datamu za kolokviumi i ispiti"),
-        
+        title: Text("Datumi za kolokviumi i ispiti"),
+
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
@@ -107,6 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: _createAppBar()
