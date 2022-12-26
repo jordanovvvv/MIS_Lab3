@@ -18,6 +18,26 @@ class AdaptiveFlatButton extends StatelessWidget {
         : TextButton(
       child: Text(text),
       onPressed: handler,
+      style: ButtonStyle(
+        textStyle: MaterialStateProperty.all(
+          const TextStyle(fontSize: 20),
+        ),
+        minimumSize: MaterialStateProperty.all(
+            const Size(100, 40)
+        ),
+        side: MaterialStateProperty.all(
+          const BorderSide(
+            color: Colors.lightBlue,
+            width: 1,
+          ),
+        ),
+        shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30)
+            )
+        ),
+
+      ),
     );
   }
 

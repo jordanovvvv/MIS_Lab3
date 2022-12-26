@@ -37,8 +37,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   List<ListItem> _userItems = [
-    ListItem(id: "T1", naslov: "Algoritmi i podatocni strukturi", datum: "25.10.2022", vreme: "14:15"),
-    ListItem(id: "T2", naslov: "Verojatnost i statistika", datum: "26.10.2022", vreme: "14:15"),
+    ListItem(id: "T1", naslov: "Algoritmi i podatocni strukturi", datum: "2022-12-25", vreme: "14:15"),
+    ListItem(id: "T2", naslov: "Verojatnost i statistika", datum: "2022-12-27", vreme: "16:00"),
+    ListItem(id: "T3", naslov: "Kalkulus 1", datum: "2022-12-27", vreme: "15:30")
   ];
 
   void _addItemFunction(BuildContext ct) {
@@ -66,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _createBody() {
     return Center(
       child: _userItems.isEmpty
-          ? Text("No elements")
+          ? Text("Nema elementi")
           : ListView.builder(
         itemBuilder: (ctx, index) {
           return Card(
